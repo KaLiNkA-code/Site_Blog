@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import index
+from everythingbeats import views
+
 
 urlpatterns = [
+    path('index/', index),
     path('admin/', admin.site.urls),
+    
+    # Auth
+    
+    path('signup/', views.signupuser, name='signupuser'),
+    
+    # EveryThingBeats
+    path('everythingbeats/', views.main_everythingbeats, name='main_everythingbeats')
 ]
