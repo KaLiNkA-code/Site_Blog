@@ -23,10 +23,14 @@ urlpatterns = [
     path('index/', index),
     path('admin/', admin.site.urls),
     
+    path('', views.home, name='home'),
+    
     # Auth
     
     path('signup/', views.signupuser, name='signupuser'),
+    path('login/', views.loginuser, name='loginuser'),
+    path('logout/', views.logoutuser, name='logoutuser'),
     
     # EveryThingBeats
-    path('everythingbeats/', views.main_everythingbeats, name='main_everythingbeats')
+    path('everythingbeats/', views.main_everythingbeats, name='main_everythingbeats'),
 ]

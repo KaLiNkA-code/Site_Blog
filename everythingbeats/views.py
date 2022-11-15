@@ -1,12 +1,34 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from django.contrib.auth import login
+from django.contrib.auth import login, logout, authenticate
+
+
+def home(request):
+    return render(request, 'everythingbeats/home.html')
 
 
 def main_everythingbeats(request):
     return render(request, 'everythingbeats/everythingbeats.html')
+
+
+def loginuser(request):
+    if request.method == 'GET':
+        return render(request, 'everythingbeats/loginuser.html', {'form': AuthenticationForm()})
+    else:
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'everythingbeats/loginuser.html', {'form': AuthenticationForm(), 'error': 'Username and password did not match'})
+        else:
+            login(request, user)
+            return redirect('main_everythingbeats')
+
+def logoutuser(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('home')
+
 
 
 def signupuser(request):
