@@ -33,5 +33,5 @@ urlpatterns = [
     
     # EveryThingBeats
     path('everythingbeats/', views.main_everythingbeats, name='main_everythingbeats'),
-    path('password/', views.password, name='password'),
+    path('etborder/', views.password, name='password'),
 ]

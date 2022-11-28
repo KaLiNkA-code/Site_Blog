@@ -1,8 +1,5 @@
 {% extends 'everythingbeats/base.html' %}
-
 {% load static %}
-
-
 {% block content %}
 
 <!doctype html>
@@ -22,238 +19,88 @@
     <title>KaLiNKAGroup</title>
   </head>
   <body>
-    <div> 
-       <br>
-      <br>
-      <p id="Hello">Hello<p>
-        <br><br><br>
-        <br>
-        <p>"We want to make everyday things accessible to everyone and contribute to society. we have a wide range of services, which allows anyone to choose what they need."</p>
-
-        <br>
-        <a href="/everythingbeats/">
-        <p id="EveryThingBeats">
-        <br>
-        <br><br><br><br><br>
-        <img id="EFB_image" src="{% static 'media/EFB_image.png' %}">  
-        </a>
-        <div>
-          
-        </div class="gui-switch">
-        
-        <br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
-        
-        <br>
-    </div>
-    
-
-    <div class="container text-center">
-      <h1>Password Generator</h1>
-    
-      <form action="{% url 'password' %}">
-        <select name="length">
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12" selected="selected">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-        </select> Length
-        <br>
-        <input type="checkbox" name="uppercase"> Uppercase
-        <br>
-        <input type="checkbox" name="numbers"> Numbers
-        <br>
-        <input type="checkbox" name="special"> Special Characters
-        <br>
-    
-        <input type="submit" value="Generate Password" class="btn btn-primary">
-      </form>
-    </div>
-
-
-    <!-- Дополнительный JavaScript; выберите один из двух! -->
-
-    <!-- Вариант 1: Bootstrap в связке с Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Вариант 2: Bootstrap JS отдельно от Popper
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+    <button class="basebutton">More</button>
+    <button class="basebuttonn">More</button>
+    <button class="basebutton">More</button>
+    <button class="basebuttonn">More</button>
+    <button class="basebutton">More</button>
+    <button class="basebuttonn">More</button>
   </body>
-
-  <style>
-    /* Rectangle 1 */
-
-
-
-  /* Hello */
-
-#Hello {
-position: absolute;
-width: 146px;
-height: 69px;
-left: calc(50% - 146px/2);
-
-font-family: 'Dancing Script', cursive;
-font-style: normal;
-font-weight: 400;
-font-size: 80px;
-line-height: 100px;
-text-align: center;
-
-color: #000000;
-}
-
-/* Rectangle 1 */
-
-#EveryThingBeats {
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  
-  background: #C5E057;
-  border-radius: 60px;
-}
-
-/* Rectangle 2 */
-
-#BB {
-position: absolute;
-left: 4%;
-right: 4%;
-bottom: 40%;
-
-background: #C5E057;
-border-radius: 60px;
-}
-
-/* A team that provides all kinds of services in the musical field */
-
-
-position: absolute;
-left: 43.8%;
-right: 8.81%;
-top: 26.39%;
-bottom: 65.89%;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 23px;
-line-height: 28px;
-text-align: center;
-letter-spacing: 0.03em;
-
-color: #000000;
-
-
-
-/* in process */
-
-
-position: absolute;
-left: 43.59%;
-right: 9.01%;
-top: 60.32%;
-bottom: 31.97%;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 23px;
-line-height: 28px;
-text-align: center;
-letter-spacing: 0.03em;
-
-color: #000000;
-
-
-
-/* EveryThingBeats */
-
-
-position: absolute;
-left: 43.8%;
-right: 8.81%;
-bottom: 75.28%;
-
-font-family: 'Italianno';
-font-style: normal;
-font-weight: 400;
-font-size: 60px;
-line-height: 75px;
-text-align: center;
-text-decoration-line: underline;
-
-color: #000000;
-
-
-
-/* KaLiNKAMedia */
-
-
-position: absolute;
-left: 43.59%;
-right: 9.01%;
-top: 51.67%;
-bottom: 41.36%;
-
-font-family: 'Italianno';
-font-style: normal;
-font-weight: 400;
-font-size: 60px;
-line-height: 75px;
-text-align: center;
-text-decoration-line: underline;
-
-color: #000000;
-
-
-
-/* image 1 */
-
-#EFB_image{
-position: absolute;
-left: 3%;
-right: 56.25%;
-bottom: 90%;
-border-radius: 60px;
-background: url(Egor.png);
-}
-
-
-#Egor {
-  position: absolute;
-  width: 20%;
-  height: 20%;
-  left: 3%;
-  
-  background: url(Egor.png);
-  border-radius: 20px;
-  }
-
-
-/* image 2 */
-
-
-position: absolute;
-left: 6.7%;
-right: 56.45%;
-top: 51.71%;
-bottom: 29.24%;
-
-background: url(image.png);
-border-radius: 30px;
-</style>
 </html>
 
 
+<style>
+.basebutton{
+  font-family: Tahoma;
+  float: left;
+  
+  margin: 30px;
+  padding: 10% 30%;
+  border: none;
+  border-radius: 32px;
+  font-size: 20%;
+  color: #fff;
+  background: #2799d6;
+  box-shadow: 0 4px 8px 0 rgba(39, 153, 214, 0.35);
+  cursor: pointer;
+  transition: border-radius 0.5s ease-in;
+  text-size: 30px;
+  clear: both;
+}
+
+background: #df922f;
+
+    
+    border-radius: 5px; 
+    width: 16%;
+    height: 5%;
+    font-size:100%;
+    position:absolute;
+    bottom:2%;
+    right:37%;
+
+.basebutton:hover {
+  background: #7db3d1;
+  box-shadow: 0 4px 16px 0 rgba(39, 153, 214, 0.25);
+  border-radius: 50px;
+}
+
+.basebuttonn {
+  float: right;
+  margin: 10px;
+  padding: 10% 30%;
+  border: none;
+  border-radius: 32px;
+  font-size: 20%;
+  color: #fff;
+  background: #2799d6;
+  box-shadow: 0 4px 8px 0 rgba(39, 153, 214, 0.35);
+  cursor: pointer;
+  transition: border-radius 0.5s ease-in;
+  clear: both;
+}
+
+.basebuttonn:hover {
+  background: #7db3d1;
+  box-shadow: 0 4px 16px 0 rgba(39, 153, 214, 0.25);
+  border-radius: 50px;
+}
+.f {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+   div img {
+    display: block; /* Убираем отступ снизу */
+    font-size: 10%;
+    transition: 1s; /* Переход 1 секунда */
+   }
+   div img:hover {
+    transform: scale(1.2); /* Увеличиваем картинку */
+    border-radius: 25px;
+   }
+
+</style>
 
 {% endblock %}
-

@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 import random
+import smtplib
+count_orders = 100
 
 
 def home(request):
@@ -52,20 +54,42 @@ def signupuser(request):
 
 
 def password(request):
-    characters = list('abcdefghijklmnopqrstuvwxyz')
+    global count_orders
+    price = 0
+    order = ""
+    text = "Нету"
+    contacts = ""
 
-    if request.GET.get('uppercase'):
-        characters.extend(list('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
-    if request.GET.get('special'):
-        characters.extend(list('!@#$%^&*()'))
-    if request.GET.get('numbers'):
-        characters.extend(list('0123456789'))
+    if request.GET.get('text'):
+        text = request.GET.get('text')
+    if request.GET.get('tg'):
+        contacts = request.GET.get('tg')
+        
+    if request.GET.get('beat'):
+        price += 490
+        order += "| Бит |"
+    if request.GET.get('studio'):
+        price += 1490
+        order += "| Студия |"
+    if request.GET.get('mix'):
+        price += 840
+        order += "| Сведение |"
+    if request.GET.get('Upload'):
+        price += 990
+        order += "| Выгрузка на площадки |"
 
-    length = int(request.GET.get('length', 12))
     
-    thepassword = ''
-    for x in range(length):
-        thepassword += random.choice(characters)
+    smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+    smtpObj.starttls()
+    smtpObj.login("findek.official@gmail.com", "saskcwbuwukgcyrl")
+    # кодировка письма
+    charset = 'Content-Type: text/plain; charset=utf-8'
+    mime = 'MIME-Version: 1.0'
+    text_t = f"Привет! Цена заказа:{price}\n делали: {order}\n пожелание: {text} \n Контакт: {contacts}"
+    body = "\r\n".join((f"From: findek.official@gmail.com", f"To: findek.official@gmail.com",
+                        f"Subject: Новый заказ под номером {count_orders}", mime, charset, "", text_t))
+    smtpObj.sendmail("justkiddingboat@gmail.com", "findek.official@gmail.com", body.encode('utf-8'))
+    count_orders += 1
+    smtpObj.quit()
 
-    return render(request, 'templates/everythingbeats/password.html', {'password':thepassword})
-    
+    return render(request, 'everythingbeats/order.html', {'price': price, 'text': text, 'order': order, 'contacts': contacts})
